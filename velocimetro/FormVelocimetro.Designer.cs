@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelCanvas = new System.Windows.Forms.Panel();
+            this.lblDigital = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelCanvas
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(136, 91);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(711, 359);
-            this.panel1.TabIndex = 0;
+            this.panelCanvas.BackColor = System.Drawing.SystemColors.Control;
+            this.panelCanvas.Location = new System.Drawing.Point(136, 91);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(711, 359);
+            this.panelCanvas.TabIndex = 0;
             // 
-            // label1
+            // lblDigital
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(384, 463);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 57);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.lblDigital.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblDigital.Location = new System.Drawing.Point(384, 463);
+            this.lblDigital.Name = "lblDigital";
+            this.lblDigital.Size = new System.Drawing.Size(174, 57);
+            this.lblDigital.TabIndex = 1;
+            this.lblDigital.Text = "label1";
             // 
-            // Form1
+            // FormVelocimetro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1002, 670);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Controls.Add(this.lblDigital);
+            this.Controls.Add(this.panelCanvas);
+            this.Name = "FormVelocimetro";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -64,8 +65,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelCanvas;
+        private System.Windows.Forms.Label lblDigital;
     }
 }
 
