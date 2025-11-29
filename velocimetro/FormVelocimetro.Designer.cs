@@ -42,12 +42,14 @@
             // 
             // lblDigital
             // 
-            this.lblDigital.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblDigital.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblDigital.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDigital.Location = new System.Drawing.Point(384, 463);
             this.lblDigital.Name = "lblDigital";
             this.lblDigital.Size = new System.Drawing.Size(174, 57);
             this.lblDigital.TabIndex = 1;
             this.lblDigital.Text = "label1";
+            this.lblDigital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormVelocimetro
             // 

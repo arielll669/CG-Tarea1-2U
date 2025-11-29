@@ -23,19 +23,14 @@ namespace velocimetro
         {
             // Configurar calidad de gráficos
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
             // 1. Dibujar círculo principal
             DibujarCirculoPrincipal(g);
-
             // 2. Dibujar marcas secundarias (cada 10 km/h)
             DibujarMarcasSecundarias(g);
-
             // 3. Dibujar marcas principales (cada 20 km/h)
             DibujarMarcasPrincipales(g);
-
             // 4. Dibujar números
             DibujarNumeros(g);
-
             // 5. Dibujar aguja
             DibujarAguja(g, velocidad);
         }
