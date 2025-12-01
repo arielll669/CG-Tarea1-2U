@@ -21,25 +21,19 @@ namespace velocimetro
 
         public void Actualizar(float velocidad)
         {
-            // Actualizar el offset de las líneas según la velocidad
-            // Factor de conversión: mayor velocidad = mayor desplazamiento
+
             float factorMovimiento = velocidad * 0.12f;
             offsetLineas += factorMovimiento;
 
-            // Usar módulo para mantener el offset siempre en rango [0, ESPACIADO_LINEAS]
-            // Esto crea un loop infinito perfecto sin importar la velocidad
             offsetLineas = offsetLineas % ESPACIADO_LINEAS;
         }
 
         public void Dibujar(Graphics g, float velocidad)
         {
-            // Activar antialiasing para líneas suaves
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Actualizar offset antes de dibujar
             Actualizar(velocidad);
 
-            // Dibujar fondo (pasto a los lados)
             using (SolidBrush brushPasto = new SolidBrush(Color.FromArgb(34, 139, 34)))
             {
                 g.FillRectangle(brushPasto, 0, 0, ancho, alto);
@@ -55,14 +49,14 @@ namespace velocimetro
                 g.FillRectangle(brushAsfalto, xCarretera, 0, anchoCarretera, alto);
             }
 
-            // Dibujar bordes de la carretera (líneas blancas continuas)
+            // Dibujar bordes de la carretera
             using (Pen penBorde = new Pen(Color.White, 4))
             {
                 g.DrawLine(penBorde, xCarretera, 0, xCarretera, alto);
                 g.DrawLine(penBorde, xCarretera + anchoCarretera, 0, xCarretera + anchoCarretera, alto);
             }
 
-            // Dibujar líneas divisorias de carriles (discontinuas y animadas)
+            // Dibujar líneas divisorias de carriles
             using (Pen penLinea = new Pen(Color.Yellow, 3))
             {
                 int anchoCarril = anchoCarretera / NUM_CARRILES;
@@ -71,8 +65,6 @@ namespace velocimetro
                 {
                     int xLinea = xCarretera + (carril * anchoCarril);
 
-                    // Dibujar líneas discontinuas con offset animado
-                    // Empezar desde mucho más arriba para cubrir cualquier espacio vacío
                     for (float y = -ESPACIADO_LINEAS * 2 + offsetLineas; y < alto + ESPACIADO_LINEAS; y += ESPACIADO_LINEAS)
                     {
                         g.DrawLine(penLinea, xLinea, y, xLinea, y + 20);

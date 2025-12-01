@@ -14,9 +14,9 @@ namespace velocimetro
         private bool frenando;
 
         // Constantes de física del motor
-        private const double ACELERACION = 2.0;  // km/h por tick
-        private const double DESACELERACION = 3.0; // km/h por tick (frena más rápido)
-        private const double FRICCION = 0.5; // Desaceleración natural sin frenar
+        private const double ACELERACION = 2.0;
+        private const double DESACELERACION = 3.0;
+        private const double FRICCION = 0.5;
         private const double VELOCIDAD_MINIMA = 0;
         private const double VELOCIDAD_MAXIMA = 180;
 
