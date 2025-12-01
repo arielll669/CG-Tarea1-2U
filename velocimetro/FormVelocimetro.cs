@@ -9,10 +9,12 @@ namespace velocimetro
         private cVelocimetro velocimetro;
         private cMotorVelocidad motor;
         private Timer timer;
+        private cCarretera carretera;
 
         public FormVelocimetro()
         {
             InitializeComponent();
+
 
             // Configurar el panel
             panelCanvas.Paint += PanelCanvas_Paint;
@@ -22,6 +24,17 @@ namespace velocimetro
             System.Reflection.BindingFlags.Instance |
             System.Reflection.BindingFlags.NonPublic,
             null, panelCanvas, new object[] { true });
+
+            // Configurar el panel de carretera
+            panelCarretera.Paint += panelCarretera_Paint;
+            panelCarretera.GetType().InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, panelCarretera, new object[] { true });
+
+            // Crear instancia de la carretera
+            carretera = new cCarretera(panelCarretera.Width, panelCarretera.Height);
 
             // Crear instancia del velocímetro
             int centroX = panelCanvas.Width / 2;
@@ -57,6 +70,8 @@ namespace velocimetro
 
             // Repintar el panel (esto llama a PanelCanvas_Paint)
             panelCanvas.Invalidate();
+
+            panelCarretera.Invalidate();
         }
 
         private void PanelCanvas_Paint(object sender, PaintEventArgs e)
@@ -92,6 +107,11 @@ namespace velocimetro
         private void ActualizarLabelDigital()
         {
             lblDigital.Text = motor.VelocidadActual.ToString("0") + " km/h";
+        }
+
+        private void panelCarretera_Paint(object sender, PaintEventArgs e)
+        {
+            carretera.Dibujar(e.Graphics, (float)motor.VelocidadActual);
         }
     }
 }

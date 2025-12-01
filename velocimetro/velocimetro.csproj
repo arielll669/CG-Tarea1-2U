@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cCarretera.cs" />
     <Compile Include="cMotorVelocidad.cs" />
     <Compile Include="cVelocimetro.cs" />
     <Compile Include="FormVelocimetro.cs">
